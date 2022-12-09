@@ -1,0 +1,47 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# add a blank line between shell prompts
+add_newline = true
+
+# default two lines prompt
+format = """
+$all\
+$fill\
+$nodejs\
+$cmd_duration $jobs $time\
+$line_break\
+$character"""
+
+# single-line prompt for warp terminal
+#format = "$all"
+#[line_break]
+#disabled = true
+
+[character]
+success_symbol = "[❯](bold green)" # Replace the "❯" symbol in the prompt with "➜"
+#disabled = true
+
+[directory]
+truncation_length = 4 # The number of parent folders that the current directory should be truncated to.
+truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in.
+truncation_symbol = "…/" # The symbol to prefix to truncated paths.
+repo_root_style = "bold green" # The style for the root of the git repo. The default value is equivalent to style.
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($repo_root_style)[$read_only]($read_only_style) " # The format of a git repo when repo_root_style is defined.
+
+# set symbol to fill empty space with
+[fill]
+symbol = " "
+
+# disable npm and other package version display
+[package]
+disabled = true
+
+# remove 'at' prefix
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+# remove 'via' prefix
+[nodejs]
+format = "[$symbol($version )]($style)"
+disabled = true
